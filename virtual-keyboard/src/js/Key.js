@@ -36,6 +36,26 @@ class Key {
 
     container.append(key);
     this.root = key;
+
+    this.code = keyData.code;
+    this.enUpper = enUpper;
+    this.enLower = enLower;
+    this.ruUpper = ruUpper;
+    this.ruLower = ruLower;
+
+    this.curLang = 'en';
+    this.curCase = 'Lower';
+
+    this.changeLayout();
+  }
+
+  changeLayout() {
+    this.enUpper.classList.add('hidden');
+    this.enLower.classList.add('hidden');
+    this.ruUpper.classList.add('hidden');
+    this.ruLower.classList.add('hidden');
+
+    this[this.curLang + this.curCase].classList.remove('hidden');
   }
 }
 

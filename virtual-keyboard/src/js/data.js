@@ -1,6 +1,6 @@
 const keysData = [
   [{
-    classes: ['key_backquote'],
+    classes: [],
     code: 'Backquote',
     en_upper: '~',
     en_lower: '`',
@@ -8,15 +8,15 @@ const keysData = [
     ru_lower: 'ё',
   },
   {
-    classes: ['key_digit1'],
+    classes: [],
     code: 'Digit1',
-    en_upper: '~',
-    en_lower: '`',
-    ru_upper: 'Ё',
-    ru_lower: 'ё',
+    en_upper: '!',
+    en_lower: '1',
+    ru_upper: '!',
+    ru_lower: '1',
   },
   {
-    classes: ['key_digit2'],
+    classes: [],
     code: 'Digit2',
     en_upper: '@',
     en_lower: '2',
@@ -24,7 +24,7 @@ const keysData = [
     ru_lower: '2',
   },
   {
-    classes: ['key_digit3'],
+    classes: [],
     code: 'Digit3',
     en_upper: '#',
     en_lower: '3',
@@ -32,7 +32,7 @@ const keysData = [
     ru_lower: '3',
   },
   {
-    classes: ['key_digit4'],
+    classes: [],
     code: 'Digit4',
     en_upper: '$',
     en_lower: '4',
@@ -40,7 +40,7 @@ const keysData = [
     ru_lower: '4',
   },
   {
-    classes: ['key_digit5'],
+    classes: [],
     code: 'Digit5',
     en_upper: '%',
     en_lower: '5',
@@ -48,7 +48,7 @@ const keysData = [
     ru_lower: '5',
   },
   {
-    classes: ['key_digit6'],
+    classes: [],
     code: 'Digit6',
     en_upper: '^',
     en_lower: '6',
@@ -56,7 +56,7 @@ const keysData = [
     ru_lower: '6',
   },
   {
-    classes: ['key_digit7'],
+    classes: [],
     code: 'Digit7',
     en_upper: '&',
     en_lower: '7',
@@ -64,7 +64,7 @@ const keysData = [
     ru_lower: '7',
   },
   {
-    classes: ['key_digit8'],
+    classes: [],
     code: 'Digit8',
     en_upper: '*',
     en_lower: '8',
@@ -72,7 +72,7 @@ const keysData = [
     ru_lower: '8',
   },
   {
-    classes: ['key_digit9'],
+    classes: [],
     code: 'Digit9',
     en_upper: '(',
     en_lower: '9',
@@ -80,7 +80,7 @@ const keysData = [
     ru_lower: '9',
   },
   {
-    classes: ['key_digit0'],
+    classes: [],
     code: 'Digit0',
     en_upper: ')',
     en_lower: '0',
@@ -88,7 +88,7 @@ const keysData = [
     ru_lower: '0',
   },
   {
-    classes: ['key_minus'],
+    classes: [],
     code: 'Minus',
     en_upper: '_',
     en_lower: '-',
@@ -96,7 +96,7 @@ const keysData = [
     ru_lower: '-',
   },
   {
-    classes: ['key_equal'],
+    classes: [],
     code: 'Equal',
     en_upper: '+',
     en_lower: '=',
@@ -104,7 +104,7 @@ const keysData = [
     ru_lower: '=',
   },
   {
-    classes: ['key_backspace'],
+    classes: ['key_double'],
     code: 'Backspace',
     en_upper: 'Backspace',
     en_lower: 'Backspace',
@@ -112,7 +112,7 @@ const keysData = [
     ru_lower: 'Backspace',
   }],
   [{
-    classes: ['key_tab'],
+    classes: [],
     code: 'Tab',
     en_upper: 'Tab',
     en_lower: 'Tab',
@@ -120,7 +120,7 @@ const keysData = [
     ru_lower: 'Tab',
   },
   {
-    classes: ['key_keyq'],
+    classes: [],
     code: 'KeyQ',
     en_upper: 'Q',
     en_lower: 'q',
@@ -128,7 +128,7 @@ const keysData = [
     ru_lower: 'й',
   },
   {
-    classes: ['key_keyw'],
+    classes: [],
     code: 'KeyW',
     en_upper: 'W',
     en_lower: 'w',
@@ -136,7 +136,7 @@ const keysData = [
     ru_lower: 'ц',
   },
   {
-    classes: ['key_keye'],
+    classes: [],
     code: 'KeyE',
     en_upper: 'E',
     en_lower: 'e',
@@ -144,7 +144,7 @@ const keysData = [
     ru_lower: 'у',
   },
   {
-    classes: ['key_keyr'],
+    classes: [],
     code: 'KeyR',
     en_upper: 'R',
     en_lower: 'r',
@@ -152,7 +152,7 @@ const keysData = [
     ru_lower: 'к',
   },
   {
-    classes: ['key_keyt'],
+    classes: [],
     code: 'KeyT',
     en_upper: 'T',
     en_lower: 't',
@@ -160,7 +160,7 @@ const keysData = [
     ru_lower: 'е',
   },
   {
-    classes: ['key_keyy'],
+    classes: [],
     code: 'KeyY',
     en_upper: 'Y',
     en_lower: 'y',
@@ -168,7 +168,7 @@ const keysData = [
     ru_lower: 'н',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'KeyU',
     en_upper: 'U',
     en_lower: 'u',
@@ -176,7 +176,7 @@ const keysData = [
     ru_lower: 'г',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'KeyI',
     en_upper: 'I',
     en_lower: 'i',
@@ -184,7 +184,7 @@ const keysData = [
     ru_lower: 'ш',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'KeyO',
     en_upper: 'O',
     en_lower: 'o',
@@ -192,7 +192,7 @@ const keysData = [
     ru_lower: 'щ',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'KeyP',
     en_upper: 'P',
     en_lower: 'p',
@@ -200,7 +200,7 @@ const keysData = [
     ru_lower: 'з',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'BracketLeft',
     en_upper: '{',
     en_lower: '[',
@@ -208,7 +208,7 @@ const keysData = [
     ru_lower: 'х',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'BracketRight',
     en_upper: '}',
     en_lower: ']',
@@ -216,15 +216,23 @@ const keysData = [
     ru_lower: 'ъ',
   },
   {
-    classes: ['key_backspace'],
+    classes: [],
     code: 'Backslash',
     en_upper: '|',
     en_lower: '\\',
     ru_upper: '/',
     ru_lower: '\\',
+  },
+  {
+    classes: [],
+    code: 'Delete',
+    en_upper: 'Del',
+    en_lower: 'Del',
+    ru_upper: 'Del',
+    ru_lower: 'Del',
   }],
   [{
-    classes: [''],
+    classes: ['key_double'],
     code: 'CapsLock',
     en_upper: 'CapsLock',
     en_lower: 'CapsLock',
@@ -232,7 +240,7 @@ const keysData = [
     ru_lower: 'CapsLock',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'KeyA',
     en_upper: 'A',
     en_lower: 'a',
@@ -240,7 +248,7 @@ const keysData = [
     ru_lower: 'ф',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'KeyS',
     en_upper: 'S',
     en_lower: 's',
@@ -248,7 +256,7 @@ const keysData = [
     ru_lower: 'ы',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'KeyD',
     en_upper: 'D',
     en_lower: 'd',
@@ -256,7 +264,7 @@ const keysData = [
     ru_lower: 'в',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'KeyF',
     en_upper: 'F',
     en_lower: 'f',
@@ -264,7 +272,7 @@ const keysData = [
     ru_lower: 'а',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'KeyG',
     en_upper: 'G',
     en_lower: 'g',
@@ -272,7 +280,7 @@ const keysData = [
     ru_lower: 'п',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'KeyH',
     en_upper: 'H',
     en_lower: 'h',
@@ -280,7 +288,7 @@ const keysData = [
     ru_lower: 'р',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'KeyJ',
     en_upper: 'J',
     en_lower: 'j',
@@ -288,7 +296,7 @@ const keysData = [
     ru_lower: 'о',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'KeyK',
     en_upper: 'K',
     en_lower: 'k',
@@ -296,7 +304,7 @@ const keysData = [
     ru_lower: 'л',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'KeyL',
     en_upper: 'L',
     en_lower: 'l',
@@ -304,7 +312,7 @@ const keysData = [
     ru_lower: 'д',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'Semicolon',
     en_upper: ':',
     en_lower: ';',
@@ -312,7 +320,7 @@ const keysData = [
     ru_lower: 'ж',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'Quote',
     en_upper: '"',
     en_lower: "'",
@@ -320,7 +328,7 @@ const keysData = [
     ru_lower: 'э',
   },
   {
-    classes: [''],
+    classes: ['key_double'],
     code: 'Enter',
     en_upper: 'Enter',
     en_lower: 'Enter',
@@ -328,7 +336,7 @@ const keysData = [
     ru_lower: 'Enter',
   }],
   [{
-    classes: [''],
+    classes: ['key_double'],
     code: 'ShiftLeft',
     en_upper: 'Shift',
     en_lower: 'Shift',
@@ -336,7 +344,7 @@ const keysData = [
     ru_lower: 'Shift',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'KeyZ',
     en_upper: 'Z',
     en_lower: 'z',
@@ -344,7 +352,7 @@ const keysData = [
     ru_lower: 'я',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'KeyX',
     en_upper: 'X',
     en_lower: 'x',
@@ -352,7 +360,7 @@ const keysData = [
     ru_lower: 'ч',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'KeyC',
     en_upper: 'C',
     en_lower: 'c',
@@ -360,7 +368,7 @@ const keysData = [
     ru_lower: 'с',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'KeyV',
     en_upper: 'V',
     en_lower: 'v',
@@ -368,7 +376,7 @@ const keysData = [
     ru_lower: 'м',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'KeyB',
     en_upper: 'B',
     en_lower: 'b',
@@ -376,7 +384,7 @@ const keysData = [
     ru_lower: 'и',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'KeyN',
     en_upper: 'N',
     en_lower: 'n',
@@ -384,7 +392,7 @@ const keysData = [
     ru_lower: 'т',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'KeyM',
     en_upper: 'M',
     en_lower: 'm',
@@ -392,7 +400,7 @@ const keysData = [
     ru_lower: 'ь',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'Comma',
     en_upper: '<',
     en_lower: ',',
@@ -400,7 +408,7 @@ const keysData = [
     ru_lower: 'б',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'Period',
     en_upper: '>',
     en_lower: '.',
@@ -408,7 +416,7 @@ const keysData = [
     ru_lower: 'ю',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'Slash',
     en_upper: '?',
     en_lower: '/',
@@ -416,7 +424,7 @@ const keysData = [
     ru_lower: '.',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'ArrowUp',
     en_upper: '↑',
     en_lower: '↑',
@@ -424,7 +432,7 @@ const keysData = [
     ru_lower: '↑',
   },
   {
-    classes: [''],
+    classes: ['key_double'],
     code: 'ShiftRight',
     en_upper: 'Shift',
     en_lower: 'Shift',
@@ -432,7 +440,7 @@ const keysData = [
     ru_lower: 'Shift',
   }],
   [{
-    classes: [''],
+    classes: [],
     code: 'ControlLeft',
     en_upper: 'Ctrl',
     en_lower: 'Ctrl',
@@ -440,7 +448,7 @@ const keysData = [
     ru_lower: 'Ctrl',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'MetaLeft',
     en_upper: 'Win',
     en_lower: 'Win',
@@ -448,7 +456,7 @@ const keysData = [
     ru_lower: 'Win',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'AltLeft',
     en_upper: 'Alt',
     en_lower: 'Alt',
@@ -464,7 +472,7 @@ const keysData = [
     ru_lower: ' ',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'AltRight',
     en_upper: 'Alt',
     en_lower: 'Alt',
@@ -472,7 +480,7 @@ const keysData = [
     ru_lower: 'Alt',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'ControlRight',
     en_upper: 'Ctrl',
     en_lower: 'Ctrl',
@@ -480,7 +488,7 @@ const keysData = [
     ru_lower: 'Ctrl',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'ArrowLeft',
     en_upper: '←',
     en_lower: '←',
@@ -488,7 +496,7 @@ const keysData = [
     ru_lower: '←',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'ArrowDown',
     en_upper: '↓',
     en_lower: '↓',
@@ -496,7 +504,7 @@ const keysData = [
     ru_lower: '↓',
   },
   {
-    classes: [''],
+    classes: [],
     code: 'ArrowRight',
     en_upper: '→',
     en_lower: '→',
