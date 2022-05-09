@@ -32,6 +32,8 @@ class App {
       addSymbol: this.addSymbol.bind(this),
       changeLang: this.changeLang.bind(this),
       emulateBackspace: this.emulateBackspace.bind(this),
+      emulateDelete: this.emulateDelete.bind(this),
+      // moveCursorLeft: this.moveCursorLeft.bind(this),
     };
 
     this.keysData.forEach((keyRow) => {
@@ -56,8 +58,41 @@ class App {
   }
 
   emulateBackspace() {
-    const inputLength = this.textarea.value.length;
-    this.textarea.value = this.textarea.value.slice(0, inputLength - 1);
+    const pos = this.getCursorPosition();
+    const curInput = this.textarea.value;
+    this.textarea.value = curInput.slice(0, pos - 1) + curInput.slice(pos);
+    this.setCursorPosition(pos - 1);
+  }
+
+  emulateDelete() {
+    const pos = this.getCursorPosition();
+    const curInput = this.textarea.value;
+    this.textarea.value = curInput.slice(0, pos) + curInput.slice(pos + 1);
+    this.setCursorPosition(pos);
+  }
+
+  // moveCursorLeft() {
+  //   const newPos = this.getCursorPosition() - 1;
+  //   this.setCursorPosition(newPos);
+  // }
+
+  getCursorPosition() {
+    let position = 0;
+
+    if (this.textarea.selectionStart || this.textarea.selectionStart === 0) {
+      position = this.textarea.selectionStart;
+    } else if (document.selection) {
+      this.textarea.focus();
+      const sel = document.selection.createRange();
+      sel.moveStart('character', -this.textarea.value.length);
+      position = sel.text.length;
+    }
+
+    return position;
+  }
+
+  setCursorPosition(position) {
+    this.textarea.setSelectionRange(position, position);
   }
 
   update() {

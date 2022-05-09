@@ -69,6 +69,13 @@ class Key {
       'ShiftLeft', 'ShiftRight', 'ControlLeft', 'ControlRight', 'MetaLeft',
       'AltLeft', 'AltRight', 'ArrowUp', 'ArrowLeft', 'ArrowDown', 'ArrowRight'];
 
+    const arrowSymbols = {
+      ArrowUp: '↑',
+      ArrowLeft: '←',
+      ArrowDown: '↓',
+      ArrowRight: '→',
+    };
+
     let onKeyDown = () => {};
     const onKeyUp = (e) => {
       if (e.code === this.code) {
@@ -79,7 +86,6 @@ class Key {
     if (!noSymbolButtons.includes(this.code)) {
       onKeyDown = (e) => {
         e.preventDefault();
-        console.log(e);
         if (e.code === this.code) {
           this.callbacks.addSymbol(this[`${this.curLang + this.curCase}Symbol`]);
           this.root.classList.add('active');
@@ -98,6 +104,22 @@ class Key {
         e.preventDefault();
         if (e.code === this.code) {
           this.callbacks.emulateBackspace();
+          this.root.classList.add('active');
+        }
+      };
+    } else if (this.code === 'Delete') {
+      onKeyDown = (e) => {
+        e.preventDefault();
+        if (e.code === this.code) {
+          this.callbacks.emulateDelete();
+          this.root.classList.add('active');
+        }
+      };
+    } else if (Object.keys(arrowSymbols).includes(this.code)) {
+      onKeyDown = (e) => {
+        e.preventDefault();
+        if (e.code === this.code) {
+          this.callbacks.addSymbol(arrowSymbols[this.code]);
           this.root.classList.add('active');
         }
       };
