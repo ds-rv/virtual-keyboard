@@ -33,7 +33,6 @@ class App {
       changeLang: this.changeLang.bind(this),
       emulateBackspace: this.emulateBackspace.bind(this),
       emulateDelete: this.emulateDelete.bind(this),
-      // moveCursorLeft: this.moveCursorLeft.bind(this),
     };
 
     this.keysData.forEach((keyRow) => {
@@ -49,7 +48,10 @@ class App {
   }
 
   addSymbol(symbol) {
-    this.textarea.value += symbol;
+    const pos = this.getCursorPosition();
+    const curInput = this.textarea.value;
+    this.textarea.value = curInput.slice(0, pos) + symbol + curInput.slice(pos);
+    this.setCursorPosition(pos + 1);
   }
 
   changeLang(lang) {
@@ -70,11 +72,6 @@ class App {
     this.textarea.value = curInput.slice(0, pos) + curInput.slice(pos + 1);
     this.setCursorPosition(pos);
   }
-
-  // moveCursorLeft() {
-  //   const newPos = this.getCursorPosition() - 1;
-  //   this.setCursorPosition(newPos);
-  // }
 
   getCursorPosition() {
     let position = 0;

@@ -115,6 +115,14 @@ class Key {
           this.root.classList.add('active');
         }
       };
+    } else if (this.code === 'Enter') {
+      onKeyDown = (e) => {
+        e.preventDefault();
+        if (e.code === this.code) {
+          this.callbacks.addSymbol('\n');
+          this.root.classList.add('active');
+        }
+      };
     } else if (Object.keys(arrowSymbols).includes(this.code)) {
       onKeyDown = (e) => {
         e.preventDefault();
