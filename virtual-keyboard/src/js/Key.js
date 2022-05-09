@@ -1,5 +1,5 @@
 class Key {
-  constructor(container, keyData) {
+  constructor(container, keyData, callbacks) {
     const key = document.createElement('div');
     key.classList.add('key');
     keyData.classes.forEach((className) => {
@@ -11,11 +11,11 @@ class Key {
 
     const enLower = document.createElement('div');
     enLower.classList.add('key__lowercase');
-    enLower.innerText = keyData.en_lower;
+    enLower.innerText = keyData.enLower;
 
     const enUpper = document.createElement('div');
     enUpper.classList.add('key__uppercase');
-    enUpper.innerText = keyData.en_upper;
+    enUpper.innerText = keyData.enUpper;
 
     enBlock.append(enLower, enUpper);
 
@@ -24,11 +24,11 @@ class Key {
 
     const ruLower = document.createElement('div');
     ruLower.classList.add('key__lowercase');
-    ruLower.innerText = keyData.ru_lower;
+    ruLower.innerText = keyData.ruLower;
 
     const ruUpper = document.createElement('div');
     ruUpper.classList.add('key__uppercase');
-    ruUpper.innerText = keyData.ru_upper;
+    ruUpper.innerText = keyData.ruUpper;
 
     enBlock.append(ruLower, ruUpper);
 
@@ -36,6 +36,7 @@ class Key {
 
     container.append(key);
     this.root = key;
+    this.callbacks = callbacks;
 
     this.code = keyData.code;
     this.enUpper = enUpper;
@@ -43,10 +44,67 @@ class Key {
     this.ruUpper = ruUpper;
     this.ruLower = ruLower;
 
+    this.enUpperSymbol = keyData.enUpper;
+    this.enLowerSymbol = keyData.enLower;
+    this.ruUpperSymbol = keyData.ruUpper;
+    this.ruLowerSymbol = keyData.ruLower;
+
     this.curLang = 'en';
     this.curCase = 'Lower';
 
     this.changeLayout();
+    this.addEventListeners();
+  }
+
+  addEventListeners() {
+    this.root.addEventListener('mousedown', (e) => {
+      e.currentTarget.classList.add('active');
+    });
+
+    this.root.addEventListener('mouseup', (e) => {
+      e.currentTarget.classList.remove('active');
+    });
+
+    const noSymbolButtons = ['Backspace', 'Tab', 'Delete', 'CapsLock', 'Enter',
+      'ShiftLeft', 'ShiftRight', 'ControlLeft', 'ControlRight', 'MetaLeft',
+      'AltLeft', 'AltRight', 'ArrowUp', 'ArrowLeft', 'ArrowDown', 'ArrowRight'];
+
+    let onKeyDown = () => {};
+    const onKeyUp = (e) => {
+      if (e.code === this.code) {
+        this.root.classList.remove('active');
+      }
+    };
+
+    if (!noSymbolButtons.includes(this.code)) {
+      onKeyDown = (e) => {
+        e.preventDefault();
+        console.log(e);
+        if (e.code === this.code) {
+          this.callbacks.addSymbol(this[`${this.curLang + this.curCase}Symbol`]);
+          this.root.classList.add('active');
+        }
+      };
+    } else if (this.code === 'Tab') {
+      onKeyDown = (e) => {
+        e.preventDefault();
+        if (e.code === this.code) {
+          this.callbacks.addSymbol('\t');
+          this.root.classList.add('active');
+        }
+      };
+    } else if (this.code === 'Backspace') {
+      onKeyDown = (e) => {
+        e.preventDefault();
+        if (e.code === this.code) {
+          this.callbacks.emulateBackspace();
+          this.root.classList.add('active');
+        }
+      };
+    }
+
+    document.addEventListener('keydown', onKeyDown.bind(this));
+    document.addEventListener('keyup', onKeyUp.bind(this));
   }
 
   changeLayout() {
@@ -56,6 +114,12 @@ class Key {
     this.ruLower.classList.add('hidden');
 
     this[this.curLang + this.curCase].classList.remove('hidden');
+  }
+
+  updateParams(params) {
+    Object.keys(params).forEach((key) => {
+      this[key] = params[key];
+    });
   }
 }
 
