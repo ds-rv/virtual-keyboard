@@ -10,6 +10,7 @@ class App {
     }
     this.curLang = localStorage.getItem('ds_rv_virtual_keyboard_lang');
     this.curCase = 'Lower';
+    this.capsOn = false;
 
     this.keysData = keysData;
     this.keys = [];
@@ -34,6 +35,10 @@ class App {
     const callbacks = {
       addSymbol: this.addSymbol.bind(this),
       changeLang: this.changeLang.bind(this),
+      changeCase: this.changeCase.bind(this),
+      switchToUppercase: this.switchToUppercase.bind(this),
+      switchToLowercase: this.switchToLowercase.bind(this),
+      // getCapsStatus: this.getCapsStatus.bind(this),
       emulateBackspace: this.emulateBackspace.bind(this),
       emulateDelete: this.emulateDelete.bind(this),
     };
@@ -69,6 +74,30 @@ class App {
     localStorage.setItem('ds_rv_virtual_keyboard_lang', this.curLang);
     this.update();
   }
+
+  changeCase() {
+    this.curCase = (this.curCase === 'Lower') ? 'Upper' : 'Lower';
+    this.capsOn = this.curCase === 'Upper';
+    this.update();
+  }
+
+  switchToUppercase() {
+    if (!this.capsOn && this.curCase !== 'Upper') {
+      this.curCase = 'Upper';
+      this.update();
+    }
+  }
+
+  switchToLowercase() {
+    if (!this.capsOn && this.curCase !== 'Lower') {
+      this.curCase = 'Lower';
+      this.update();
+    }
+  }
+
+  // getCapsStatus() {
+  //   return this.capsOn;
+  // }
 
   emulateBackspace() {
     const pos = this.getCursorPosition();

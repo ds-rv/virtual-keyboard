@@ -83,6 +83,11 @@ class Key {
       }
     };
 
+    let onMouseDown = () => {};
+    let onMouseUp = () => {
+      this.root.classList.remove('active');
+    };
+
     if (!noSymbolButtons.includes(this.code)) {
       onKeyDown = (e) => {
         e.preventDefault();
@@ -90,6 +95,11 @@ class Key {
           this.callbacks.addSymbol(this[`${this.curLang + this.curCase}Symbol`]);
           this.root.classList.add('active');
         }
+      };
+
+      onMouseDown = () => {
+        this.callbacks.addSymbol(this[`${this.curLang + this.curCase}Symbol`]);
+        this.root.classList.add('active');
       };
     } else if (this.code === 'Tab') {
       onKeyDown = (e) => {
@@ -99,6 +109,11 @@ class Key {
           this.root.classList.add('active');
         }
       };
+
+      onMouseDown = () => {
+        this.callbacks.addSymbol('\t');
+        this.root.classList.add('active');
+      };
     } else if (this.code === 'Backspace') {
       onKeyDown = (e) => {
         e.preventDefault();
@@ -106,6 +121,11 @@ class Key {
           this.callbacks.emulateBackspace();
           this.root.classList.add('active');
         }
+      };
+
+      onMouseDown = () => {
+        this.callbacks.emulateBackspace();
+        this.root.classList.add('active');
       };
     } else if (this.code === 'Delete') {
       onKeyDown = (e) => {
@@ -115,6 +135,11 @@ class Key {
           this.root.classList.add('active');
         }
       };
+
+      onKeyDown = () => {
+        this.callbacks.emulateDelete();
+        this.root.classList.add('active');
+      };
     } else if (this.code === 'Enter') {
       onKeyDown = (e) => {
         e.preventDefault();
@@ -123,11 +148,19 @@ class Key {
           this.root.classList.add('active');
         }
       };
+
+      onMouseDown = () => {
+        this.callbacks.addSymbol('\n');
+        this.root.classList.add('active');
+      };
     } else if (this.code === 'ShiftLeft' || this.code === 'ShiftRight') {
       onKeyDown = (e) => {
         e.preventDefault();
         if (e.code === this.code) {
           this.root.classList.add('active');
+        }
+        if (e.code === this.code && !e.altKey) {
+          this.callbacks.switchToUppercase();
         }
       };
       onKeyUp = (e) => {
@@ -139,6 +172,18 @@ class Key {
         if (e.code === this.code && e.altKey) {
           this.callbacks.changeLang();
         }
+        if (e.code === this.code && !e.altKey) {
+          this.callbacks.switchToLowercase();
+        }
+      };
+
+      onMouseDown = () => {
+        this.root.classList.add('active');
+        this.callbacks.switchToUppercase();
+      };
+      onMouseUp = () => {
+        this.root.classList.remove('active');
+        this.callbacks.switchToLowercase();
       };
     } else if (this.code === 'AltLeft' || this.code === 'AltRight') {
       onKeyDown = (e) => {
@@ -157,6 +202,13 @@ class Key {
           this.callbacks.changeLang();
         }
       };
+
+      onMouseDown = () => {
+        this.root.classList.add('active');
+      };
+      onKeyUp = () => {
+        this.root.classList.remove('active');
+      };
     } else if (Object.keys(arrowSymbols).includes(this.code)) {
       onKeyDown = (e) => {
         e.preventDefault();
@@ -165,10 +217,52 @@ class Key {
           this.root.classList.add('active');
         }
       };
+
+      onMouseDown = () => {
+        this.callbacks.addSymbol(arrowSymbols[this.code]);
+        this.root.classList.add('active');
+      };
+    } else if (this.code === 'CapsLock') {
+      onKeyDown = (e) => {
+        e.preventDefault();
+        if (e.code === this.code) {
+          this.root.classList.add('active');
+        }
+      };
+      onKeyUp = (e) => {
+        e.preventDefault();
+
+        if (e.code === this.code) {
+          this.root.classList.remove('active');
+          this.callbacks.changeCase();
+        }
+      };
+
+      onMouseDown = () => {
+        this.root.classList.add('active');
+      };
+      onKeyUp = () => {
+        this.root.classList.remove('active');
+        this.callbacks.changeCase();
+      };
+    } else {
+      onKeyDown = (e) => {
+        e.preventDefault();
+        if (e.code === this.code) {
+          this.root.classList.add('active');
+        }
+      };
+
+      onMouseDown = () => {
+        this.root.classList.add('active');
+      };
     }
 
     document.addEventListener('keydown', onKeyDown.bind(this));
     document.addEventListener('keyup', onKeyUp.bind(this));
+
+    this.root.addEventListener('mousedown', onMouseDown.bind(this));
+    this.root.addEventListener('mouseup', onMouseUp.bind(this));
   }
 
   changeLayout() {
