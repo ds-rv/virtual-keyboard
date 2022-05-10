@@ -54,8 +54,9 @@ class App {
     this.setCursorPosition(pos + 1);
   }
 
-  changeLang(lang) {
-    this.curLang = lang;
+  changeLang() {
+    console.log('changeLang()');
+    this.curLang = (this.curLang === 'en') ? 'ru' : 'en';
     this.update();
   }
 
@@ -93,6 +94,7 @@ class App {
   }
 
   update() {
+    console.log('App - update');
     this.keys.forEach((key) => {
       key.updateParams({
         curLang: this.curLang,

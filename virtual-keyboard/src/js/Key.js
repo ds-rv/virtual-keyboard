@@ -77,7 +77,7 @@ class Key {
     };
 
     let onKeyDown = () => {};
-    const onKeyUp = (e) => {
+    let onKeyUp = (e) => {
       if (e.code === this.code) {
         this.root.classList.remove('active');
       }
@@ -121,6 +121,46 @@ class Key {
         if (e.code === this.code) {
           this.callbacks.addSymbol('\n');
           this.root.classList.add('active');
+        }
+      };
+    } else if (this.code === 'ShiftLeft' || this.code === 'ShiftRight') {
+      onKeyDown = (e) => {
+        // console.log('down Shift...');
+        e.preventDefault();
+        if (e.code === this.code) {
+          this.root.classList.add('active');
+        }
+      };
+      onKeyUp = (e) => {
+        // console.log('up Shift...');
+        // console.log(e);
+        e.preventDefault();
+
+        if (e.code === this.code) {
+          this.root.classList.remove('active');
+        }
+        if (e.code === this.code && e.altKey) {
+          this.callbacks.changeLang();
+        }
+      };
+    } else if (this.code === 'AltLeft' || this.code === 'AltRight') {
+      onKeyDown = (e) => {
+        // console.log('down Shift...');
+        e.preventDefault();
+        if (e.code === this.code) {
+          this.root.classList.add('active');
+        }
+      };
+      onKeyUp = (e) => {
+        // console.log('up Shift...');
+        // console.log(e);
+        e.preventDefault();
+
+        if (e.code === this.code) {
+          this.root.classList.remove('active');
+        }
+        if (e.code === this.code && e.shiftKey) {
+          this.callbacks.changeLang();
         }
       };
     } else if (Object.keys(arrowSymbols).includes(this.code)) {
