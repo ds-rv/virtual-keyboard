@@ -5,7 +5,10 @@ class App {
   constructor(rootNode) {
     this.root = rootNode;
 
-    this.curLang = 'en';
+    if (!localStorage.getItem('ds_rv_virtual_keyboard_lang')) {
+      localStorage.setItem('ds_rv_virtual_keyboard_lang', 'en');
+    }
+    this.curLang = localStorage.getItem('ds_rv_virtual_keyboard_lang');
     this.curCase = 'Lower';
 
     this.keysData = keysData;
@@ -45,6 +48,8 @@ class App {
         this.keys.push(key);
       });
     });
+
+    this.update();
   }
 
   addSymbol(symbol) {
@@ -55,8 +60,8 @@ class App {
   }
 
   changeLang() {
-    console.log('changeLang()');
     this.curLang = (this.curLang === 'en') ? 'ru' : 'en';
+    localStorage.setItem('ds_rv_virtual_keyboard_lang', this.curLang);
     this.update();
   }
 
@@ -94,7 +99,6 @@ class App {
   }
 
   update() {
-    console.log('App - update');
     this.keys.forEach((key) => {
       key.updateParams({
         curLang: this.curLang,

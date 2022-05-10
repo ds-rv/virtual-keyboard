@@ -125,15 +125,12 @@ class Key {
       };
     } else if (this.code === 'ShiftLeft' || this.code === 'ShiftRight') {
       onKeyDown = (e) => {
-        // console.log('down Shift...');
         e.preventDefault();
         if (e.code === this.code) {
           this.root.classList.add('active');
         }
       };
       onKeyUp = (e) => {
-        // console.log('up Shift...');
-        // console.log(e);
         e.preventDefault();
 
         if (e.code === this.code) {
@@ -145,15 +142,12 @@ class Key {
       };
     } else if (this.code === 'AltLeft' || this.code === 'AltRight') {
       onKeyDown = (e) => {
-        // console.log('down Shift...');
         e.preventDefault();
         if (e.code === this.code) {
           this.root.classList.add('active');
         }
       };
       onKeyUp = (e) => {
-        // console.log('up Shift...');
-        // console.log(e);
         e.preventDefault();
 
         if (e.code === this.code) {
