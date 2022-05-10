@@ -49,6 +49,11 @@ class App {
       });
     });
 
+    const notificationBlock = document.createElement('div');
+    notificationBlock.classList.add('notification');
+    notificationBlock.innerText = 'Для смены раскладки клавиатуры нажмите Shift + Alt';
+    this.root.append(notificationBlock);
+
     this.update();
   }
 
