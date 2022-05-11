@@ -17,11 +17,6 @@ class App {
   }
 
   init() {
-    // const keyboardBlock = document.createElement('div');
-    // keyboardBlock.classList.add('keyboard-block');
-    // this.root.append(keyboardBlock);
-    // this.keyboardBlock = keyboardBlock;
-
     const textarea = document.createElement('textarea');
     textarea.classList.add('keyboard-block');
     this.root.append(textarea);
@@ -94,10 +89,6 @@ class App {
       this.update();
     }
   }
-
-  // getCapsStatus() {
-  //   return this.capsOn;
-  // }
 
   emulateBackspace() {
     const pos = this.getCursorPosition();

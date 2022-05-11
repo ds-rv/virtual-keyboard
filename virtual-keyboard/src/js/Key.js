@@ -138,7 +138,7 @@ class Key {
 
       onKeyDown = () => {
         this.callbacks.emulateDelete();
-        this.root.classList.add('active');
+        this.root.classList.remove('active');
       };
     } else if (this.code === 'Enter') {
       onKeyDown = (e) => {
@@ -206,7 +206,7 @@ class Key {
       onMouseDown = () => {
         this.root.classList.add('active');
       };
-      onKeyUp = () => {
+      onMouseUp = () => {
         this.root.classList.remove('active');
       };
     } else if (Object.keys(arrowSymbols).includes(this.code)) {
@@ -241,7 +241,7 @@ class Key {
       onMouseDown = () => {
         this.root.classList.add('active');
       };
-      onKeyUp = () => {
+      onMouseUp = () => {
         this.root.classList.remove('active');
         this.callbacks.changeCase();
       };
@@ -254,7 +254,7 @@ class Key {
       };
 
       onMouseDown = () => {
-        this.root.classList.add('active');
+        this.root.classList.remove('active');
       };
     }
 
