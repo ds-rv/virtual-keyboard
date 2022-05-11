@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #e7e7e7;
+  font-family: 'Verdana', sans-serif;
+}
+
+.container {
+  width: 920px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px;
+}
+
+.keyboard-block {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  height: 200px;
+  margin-bottom: 20px;
+  border: 1px solid #aaaaaa;
+  border-radius: 5px;
+}
+
+.keyboard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+  margin-bottom: 40px;
+}
+
+.keyboard__row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  column-gap: 10px;
+}
+
+.key {
+  width: 50px;
+  height: 50px;
+  /* border: 1px solid #cccccc; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 3px 3px 7px 0px #aaaaaa;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: 0.1s ease-out;
+}
+
+.key.key_double {
+  width: 110px;
+}
+
+.key.key_space {
+  width: 410px;
+}
+
+.key.key_darker {
+  background-color: #8f8f7f;
+}
+
+.key:hover,
+.key.active {
+  background-color: #007FD3;
+  color: #ffffff;
+}
+
+.key.active {
+  transform: scale(0.9);
+}
+
+.notification {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
